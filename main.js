@@ -76,6 +76,10 @@ form.addEventListener('submit',function(e){
     const petvalue = pet.value
 
 
+
+
+
+
     if (firstname2value === ""){
         firstname2value = undefined
     }
@@ -89,11 +93,13 @@ form.addEventListener('submit',function(e){
             married: marriedvalue,
             pet: petvalue
         }
-    
-    array.push(new_person);
+    if (validatefields(lastname, firstname, pet)){
+        array.push(new_person);
     console.log(array)
     tablebody.innerHTML = "";
     render_table()
+    }
+    
 })
 
 
@@ -155,4 +161,27 @@ function render_table(){
         pet.innerHTML = person.pet
         
     }
+}
+
+function validatefields(lastname, firstname,pet){
+    let result = true;
+    if (lastname.value === ""){
+        const par = lastname.parentElement
+        const error = par.querySelector('.error')
+        error.innerHTML = "Kötelező vezetéknév"
+        result = false;
+    }
+    if (firstname.value === ""){
+        const par = firstname.parentElement
+        const error = par.querySelector('.error')
+        error.innerHTML = "Kötelező keresztnev"
+        result = false;
+    }
+    if (pet.value === ""){
+        const par = pet.parentElement
+        const error = par.querySelector('.error')
+        error.innerHTML = "Kötelező vezetéknév"
+        result = false;
+    }
+    return result;
 }

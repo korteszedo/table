@@ -193,3 +193,10 @@ function validatefields(lastname, firstname,pet){
     }
     return result;
 }
+
+function createtablecell(htmlelement, inerHTML, parentElement){
+    const legalj = document.createElement(htmlelement)
+    legalj.innerHTML = inerHTML
+    parentElement.appendChild(legalj)
+    
+}

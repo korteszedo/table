@@ -164,6 +164,14 @@ function render_table(){
 }
 
 function validatefields(lastname, firstname,pet){
+    
+    const querySelector_ertek = form.querySelectorAll('.error');
+
+    for (const error of querySelector_ertek){
+        error.innerHTML = ''
+    }
+
+
     let result = true;
     if (lastname.value === ""){
         const par = lastname.parentElement
